@@ -1,0 +1,143 @@
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    -webkit-appearance: none;
+}
+
+textarea {
+    -webkit-appearance: none;
+}
+
+.button {
+    border-radius: 0;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+* {
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: transparent;
+}
+
+input {
+    -webkit-user-select: auto;
+    /*webkit浏览器*/
+}
+
+html {
+    -webkit-text-size-adjust: none;
+    -webkit-backface-visibility: hidden;
+}
+
+a:link {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #000000;
+    text-decoration: none;
+}
+
+.searchBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 25%;
+    color: #666666;
+    font-weight: 800;
+}
+
+.inputTitle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px;
+}
+
+.inputContent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2px;
+}
+
+.inputCommStyle {
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    text-align: center;
+    height: 25px;
+}
+
+.textAreaCommStyle {
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    height: 50px;
+}
+
+.sureCommBtn {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff5b5a;
+    color: #ffffff;
+}
+
+.spiltLine {
+    background-color: #eeeeee;
+    height: 1px;
+    width: 100%;
+}
+
+.menuItem {
+    display: flex;
+    width: 100%;
+    height: 50px;
+}
+
+.menuSplit {
+    width: 30px;
+}
+
+.menuItemIcon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuItemImg {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+.menuItemTitle {
+    width: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

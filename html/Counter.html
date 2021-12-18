@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/base.css?version=1.1.38" />
+    <link rel="stylesheet" href="css/spin.css?version=1.1.38" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title></title>
+    <script language="javascript" type="text/javascript" src="js/jquery.js?version=1.0.0.1"></script>
+    <script language="javascript" type="text/javascript" src="js/jquery.transit.js?version=1.0.0.1"></script>
+    <script language="javascript" type="text/javascript" src="js/spinnew.js?version=1.0.0.1"></script>
+</head>
+
+<body>
+    <div style="width: 100%;display: flex;justify-content: center;align-items: center;">
+
+        <div style="width: 90%;">
+
+            <div style="height: 20px;"></div>
+            <div style="font-size: 24px;color: #333333;">两个数的计算</div>
+            <div style="height: 20px;"></div>
+
+            <div>请输入数字a：<input type="text" id="input_a" /></div>
+            <div style="height: 10px;"></div>
+            <div>请输入数字b：<input type="text" id="input_b" /></div>
+            <div style="height: 10px;"></div>
+            <input type="button" id="add" value="加" />
+            <input type="button" id="sub" value="减" />
+            <input type="button" id="multiplyBy" value="乘" />
+            <input type="button" id="divideBy" value="除" />
+            <div style="height: 20px;"></div>
+            <div id="result" style="font-size: 24px;font-weight: 600;color: #ff0000;">
+
+            </div>
+            <div style="height: 20px;"></div>
+            <div style="height: 200px;">
+                <img id="tiger" style="width: 100%;display: none;" src="pic/tiger.jpg" />
+                <img id="dog" style="width: 100%;display: none;" src="pic/dog.jpg" />
+                <img id="pig" style="width: 100%;display: none;" src="pic/pig.jpg" />
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script>
+
+    $("#add").click(function () {
+        var a = Number($("#input_a").val());
+        var b = Number($("#input_b").val());
+        var c = a + b;
+        $("#result").html(c);
+        checkResult(c);
+    });
+
+    $("#sub").click(function () {
+        var a = Number($("#input_a").val());
+        var b = Number($("#input_b").val());
+        var c = a - b;
+        $("#result").html(c);
+        checkResult(c);
+    });
+
+    $("#multiplyBy").click(function () {
+        var a = Number($("#input_a").val());
+        var b = Number($("#input_b").val());
+        var c = a * b;
+        $("#result").html(c);
+        checkResult(c);
+    });
+
+    $("#divideBy").click(function () {
+        var a = Number($("#input_a").val());
+        var b = Number($("#input_b").val());
+        var c = a / b;
+        $("#result").html(c);
+        checkResult(c);
+    });
+
+
+    function checkResult(cValue) {
+        if ((cValue >= 100) && (cValue < 200)) {
+            showDog();
+        } else if ((cValue >= 200) && (cValue < 500)) {
+            showPig();
+        } else if ((cValue >= 500) && (cValue < 1000)) {
+            showTiger();
+        } else {
+            unShowAll();
+        }
+    }
+
+    function showTiger() {
+        $("#tiger").css({ "display": "block" });
+        $("#dog").css({ "display": "none" });
+        $("#pig").css({ "display": "none" });
+    }
+
+    function showDog() {
+        $("#tiger").css({ "display": "none" });
+        $("#dog").css({ "display": "block" });
+        $("#pig").css({ "display": "none" });
+    }
+
+    function showPig() {
+        $("#tiger").css({ "display": "none" });
+        $("#dog").css({ "display": "none" });
+        $("#pig").css({ "display": "block" });
+    }
+
+    function unShowAll() {
+        $("#tiger").css({ "display": "none" });
+        $("#dog").css({ "display": "none" });
+        $("#pig").css({ "display": "none" });
+    }
+
+</script>
