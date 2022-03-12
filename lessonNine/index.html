@@ -1,0 +1,108 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="js/jquery.transit.js"></script>
+</head>
+
+<body>
+
+    <div style="width: 500px;">
+
+        <div><b>请输入以下信息：</b></div>
+        <div style="height: 5px;"></div>
+        <div><input id="user" type="text" placeholder="请输入登录名" style="width: 150px;height: 30px;" /></div>
+        <div style="height: 5px;"></div>
+        <div><input id="pw" type="password" placeholder="请输入登录密码" style="width: 150px;height: 30px;" /></div>
+        <div style="height: 5px;"></div>
+        <select id="sex" style="width: 150px;height: 30px;">
+            <option value="0">请选择</option>
+            <option value="boy">帅哥</option>
+            <option value="girl">美女</option>
+            <option value="sercet">保密</option>
+        </select>
+        <div style="height: 5px;"></div>
+        <div><input id="whereFrom" type="text" placeholder="来自哪里" style="width: 150px;height: 30px;" /></div>
+        <div style="height: 10px;"></div>
+        <input id="saveBtn" type="button" value="保存信息" />
+        <div style="height: 20px;"></div>
+        <input id="readBtn" type="button" value="读取信息" />
+        <div style="height: 20px;"></div>
+        <input id="clearBtn" type="button" value="清除数据" />
+        <div style="height:30px"></div>
+        <img src="pic/hitRat.svg" />
+    </div>
+    <div style="height: 50px;"></div>
+
+    <b>作业</b>
+
+    <br /><br />
+    1、保存信息需要增加三个信息输入的文本框，并且保存时将新增的信息一并保存<br />
+    2、保存信息时需要对信息的正确性进行校验，不正确时不让保存，给出提示信息<br />
+    3、读取出来的列表信息，按照列表的形式在div输出展示<br />
+    4、实现检测账号名和密码是否正确的功能<br />
+    5、思考打地鼠的实现思路，画出来各元素的设计图<br />
+    <br /><br /><br />
+
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    var userList = getUserList();
+
+    function getUserList() {
+        var mUserList = localStorage.getItem('userList');
+        if ((mUserList != null) && (mUserList != '')) {
+            mUserList = JSON.parse(mUserList);
+        } else {
+            mUserList = new Array();
+        }
+        return mUserList;
+    }
+
+    $("#saveBtn").click(function () {
+        var user = $("#user").val();
+        var pw = $("#pw").val();
+        var sex = $("#sex").val();
+        var whereFrom = $("#whereFrom").val();
+
+        var oneData = new Object();
+        oneData['user'] = user;
+        oneData['pw'] = pw;
+        oneData['sex'] = sex;
+        oneData['whereFrom'] = whereFrom;
+
+        userList.push(oneData);
+
+        if (confirm('确定要保存吗？')) {
+            localStorage.setItem('userList', JSON.stringify(userList));
+            alert('保存成功！');
+        }
+    });
+
+    $("#readBtn").click(function () {
+        var userList = getUserList();
+        console.log(userList);
+        var len = userList.length;
+        for (var i = 0; i < len; i++) {
+            var item = userList[i];
+            console.log(item);
+            console.log(item['user']);
+        }
+
+    });
+
+    $("#clearBtn").click(function () {
+        if (confirm('是否清除数据？')) {
+            localStorage.clear();
+            alert('清除成功！');
+        }
+    });
+
+</script>

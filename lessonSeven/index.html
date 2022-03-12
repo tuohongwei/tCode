@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="js/jquery.transit.js"></script>
+</head>
+
+<body>
+
+    <div style="width: 500px;height:500px;background-color: #cccccc;">
+        <div id="myBox" style="width: 50px;height: 50px;background-color: red;position: relative;top: 10px;left: 10px;">
+        </div>
+    </div>
+    <div style="height: 10px;"></div>
+    <div style="display: flex;width: 400px;height: 40px;">
+        <input type="button" value="上" id="upButton" />
+        <div style="width: 10px;"></div>
+        <input type="button" value="下" id="downButton" />
+        <div style="width: 10px;"></div>
+        <input type="button" value="左" id="leftButton" />
+        <div style="width: 10px;"></div>
+        <input type="button" value="右" id="rightButton" />
+    </div>
+    <div style="height: 50px;"></div>
+
+    <b>作业</b>
+
+    <br /><br />
+    1、实现红色方块点击左右按钮实现左右移动<br />
+    2、实现红色方块点击按钮变大变小<br />
+    3、一个方块初始位置左上角，一个方块初始位置右下角，实现点击按钮两个方块移动到中间<br />
+    4、实现一个图片的放大、缩小、左右移动
+    <br /><br /><br />
+
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    var myBoxX = 0;
+    var myBoxY = 0;
+
+    $("#upButton").click(function () {
+        if (myBoxY >= 100) {
+            myBoxY = myBoxY - 100;
+            $("#myBox").transition({ y: myBoxY }, 500);
+        }
+    });
+    $("#downButton").click(function () {
+        console.log("====>" + myBoxY);
+        if (myBoxY <= 300) {
+            myBoxY = myBoxY + 100;
+            $("#myBox").transition({ y: myBoxY }, 500);
+        }
+    });
+
+    function autoMoveMyBox() {
+        setTimeout(function () {
+            $("#myBox").transition({ x: 100 }, 500);
+        }, 1000);
+
+        setTimeout(function () {
+            $("#myBox").transition({ x: 200 }, 500);
+        }, 2000);
+
+        setTimeout(function () {
+            $("#myBox").transition({ x: 100, y: 150 }, 500);
+        }, 4000);
+
+        setTimeout(function () {
+            $("#myBox").transition({ scale: [1.1, 2.0] }, 500);
+        }, 5000);
+
+        setTimeout(function () {
+            $("#myBox").transition({ scale: [0.5, 0.5], opacity: 0.2 }, 500);
+        }, 6000);
+
+        setTimeout(function () {
+            $("#myBox").transition({ scale: [1.0, 1.0], opacity: 1.0, x: 0, y: 0 }, 500);
+        }, 7000);
+    }
+
+    autoMoveMyBox();
+
+</script>

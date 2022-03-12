@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="js/jquery.transit.js"></script>
+</head>
+
+<body>
+
+    <div id="boxBig" style="width: 500px;height:500px;background-color: #cccccc;display: flex;flex-wrap: wrap;">
+
+    </div>
+    <div style="height: 10px;"></div>
+    <div style="display: flex;width: 400px;height: 40px;">
+        <input type="button" value="执行" id="displayButton" />
+    </div>
+    <div style="height: 50px;"></div>
+
+    <b>作业</b>
+
+    <br /><br />
+    1、实现2+4+6+8+...+200，计算输出结果<br />
+    2、点击按钮在页面显示一个随机数<br />
+    3、点击一个按钮，实现随机出现数字不同的数字，5秒钟后停止，实现猜数字的游戏<br />
+    <br /><br /><br />
+
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    loopFor();
+
+    function loopFor() {
+
+        var a = 0;
+
+        for (var i = 0; i < 100; i++) {
+            var aStr = a + ' + ' + i;
+            a = a + i;
+            console.log(aStr + " = " + a);
+        }
+
+    }
+
+    $("#displayButton").click(function () {
+        var str = '';
+        for (var i = 0; i < 10; i++) {
+            var wh = Math.round(Math.random() * 100 + 10);
+            str = str + '<div style="width:' + wh + 'px;height:' + wh + 'px;background-color:red" ></div>';
+            str = str + '<div style="width:5px"></div>';
+        }
+        $("#boxBig").html(str);
+    });
+
+
+
+
+</script>
